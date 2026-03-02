@@ -6,7 +6,7 @@ const onPages = process.env.GITHUB_ACTIONS === 'true';
 
 export default defineConfig({
   site: 'https://bud.github.io',
-  base: onPages && repo ? `/${repo}/` : '/',
+  base: '/',
   integrations: [tailwind()],
   output: 'static'
 });
