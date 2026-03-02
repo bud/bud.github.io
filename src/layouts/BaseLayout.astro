@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = 'Harish Arul | Portfolio',
+  description = 'Portfolio of Harish Arul - Software, Data, and Product.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-paper text-ink">
+    <header class="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-sm">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 md:px-8" aria-label="Main navigation">
+        <a href="#hero" class="font-display load-in text-2xl tracking-wide">HA</a>
+        <ul class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] md:gap-6">
+          <li><a class="nav-link load-in delay-1" href="#about">About</a></li>
+          <li><a class="nav-link load-in delay-2" href="#skills">Skills</a></li>
+          <li><a class="nav-link load-in delay-3" href="#projects">Projects</a></li>
+          <li><a class="nav-link load-in delay-4" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="mx-auto max-w-6xl px-5 pb-20 pt-8 md:px-8 md:pt-12">
+      <slot />
+    </main>
+  </body>
+</html>

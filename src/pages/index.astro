@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import SketchIcon from '../components/SketchIcon.astro';
+
+const skillGroups = [
+  {
+    category: 'Software',
+    items: ['TypeScript', 'Python', 'React', 'Node.js', 'Java', 'Docker']
+  },
+  {
+    category: 'Data',
+    items: ['SQL', 'MongoDB', 'BigQuery', 'Pandas', 'R', 'Schemas']
+  },
+  {
+    category: 'Product',
+    items: ['Roadmapping', 'Prioritization', 'A/B Testing', 'Metrics', 'Collaboration', 'UX Workflows']
+  }
+];
+
+const workRoles = [
+  {
+    company: 'Capital One',
+    title: 'Software Engineering Intern',
+    summary: 'Improved fraud and dispute case tools with performance gains and GenAI-powered summaries.'
+  },
+  {
+    company: 'Moonsworth',
+    title: 'Software Engineer & Product Manager',
+    summary: 'Led engineering and product initiatives for Lunar Client, supporting a platform with 3M+ monthly active users.'
+  },
+  {
+    company: 'Techforcement',
+    title: 'Digital Solutions Consultant',
+    summary: 'Delivered web, SEO, and digital solutions helping businesses establish and grow their online presence.'
+  }
+];
+---
+
+<BaseLayout>
+  <section id="hero" class="grid scroll-mt-28 gap-10 border-b border-dashed border-line pb-16 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+    <div>
+      <p class="section-kicker load-in mb-4">Portfolio</p>
+      <h1 class="hero-name load-in delay-1">Harish Arul</h1>
+      <p class="hero-tagline load-in delay-2 mt-4">Software · Data · Product</p>
+      <p class="load-in delay-3 mt-6 max-w-xl text-xl leading-relaxed text-ink/85">
+        I build systems that turn messy problems into reliable tools people actually use.
+      </p>
+      <div class="load-in delay-4 mt-8 flex flex-wrap gap-3">
+        <a href="#contact" class="sketch-btn">Contact</a>
+        <a href="#projects" class="sketch-btn secondary">View Projects</a>
+      </div>
+    </div>
+
+    <figure class="portrait-wrap load-in delay-2 mx-auto w-full max-w-md">
+      <img
+        src="/images/portrait.png"
+        alt="Monochrome sketch portrait of Harish Arul"
+        width="560"
+        height="700"
+        class="portrait-img h-auto w-full"
+        loading="eager"
+        decoding="async"
+      />
+    </figure>
+  </section>
+
+  <section id="about" class="section-spacing scroll-mt-28" aria-labelledby="about-heading">
+    <div class="section-head load-in">
+      <p class="section-kicker">Background</p>
+      <h2 id="about-heading" class="section-title">About</h2>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 md:items-start">
+      <article class="card load-in delay-1">
+        <h3 class="font-display text-4xl">Education</h3>
+        <ul class="mt-4 space-y-4">
+          <li class="rounded border border-line bg-paper/50 p-4">
+            <p class="text-lg leading-snug"><strong>Rensselaer Polytechnic Institute</strong></p>
+            <p class="mt-1 leading-relaxed">B.S. in Computer Science</p>
+            <p class="mt-1 leading-relaxed">B.S. in Information Technology & Web Science</p>
+            <p class="mt-1 leading-relaxed">Dean's Honor List</p>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card load-in delay-2">
+        <div class="flex items-center justify-between gap-3">
+          <h3 class="font-display text-4xl">Work</h3>
+          <button type="button" class="arrow-btn" data-role-next aria-label="Show next role" title="Next role">➜</button>
+        </div>
+        <div class="mt-4 space-y-4" data-role-rotator>
+          {
+            workRoles.map((role, index) => (
+              <article class={`role-item rounded border border-line bg-paper/50 p-4 ${index === 0 ? '' : 'hidden'}`} data-role-item>
+                <p class="text-lg leading-snug"><strong>{role.company}</strong></p>
+                <p class="mt-1 text-base leading-snug"><strong>{role.title}</strong></p>
+                <p class="ink-bullet mt-3">{role.summary}</p>
+              </article>
+            ))
+          }
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" class="section-spacing scroll-mt-28" aria-labelledby="skills-heading">
+    <div class="section-head load-in">
+      <p class="section-kicker">Capabilities</p>
+      <h2 id="skills-heading" class="section-title">Skills</h2>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      {
+        skillGroups.map((group, index) => (
+          <article class="card load-in" style={`--delay:${120 + index * 90}ms`}>
+            <h3 class="font-display text-4xl">{group.category}</h3>
+            <ul class="mt-5 grid grid-cols-2 gap-3">
+              {group.items.map((skill) => (
+                <li class="skill-chip">
+                  <SketchIcon label={skill} />
+                  <span>{skill}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <ProjectsSection />
+
+  <section id="contact" class="section-spacing scroll-mt-28" aria-labelledby="contact-heading">
+    <div class="section-head load-in">
+      <p class="section-kicker">Reach Out</p>
+      <h2 id="contact-heading" class="section-title">Contact</h2>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <article class="card load-in delay-1">
+        <div class="contact-icon-row">
+          <a class="contact-icon-link" href="mailto:harisharul1@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-5 w-5">
+              <path d="M3 6h18v12H3z" stroke="currentColor" stroke-width="1.8" />
+              <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+            <span>Email</span>
+          </a>
+          <a class="contact-icon-link" href="https://www.linkedin.com/in/harish-arul/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-5 w-5">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M8 10v7M8 7.5v.1M12 17v-4.1c0-1.2 1-2.2 2.2-2.2s2.2 1 2.2 2.2V17" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-icon-link" href="https://github.com/bud/" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-5 w-5">
+              <path d="M12 3.5a8.5 8.5 0 0 0-2.7 16.6c.4.1.5-.2.5-.4v-1.7c-2 .4-2.5-.8-2.7-1.4-.1-.4-.6-1.4-1-1.7-.3-.2-.7-.7 0-.7.7 0 1.2.7 1.4 1 .8 1.4 2 1 2.5.8.1-.6.3-1 .5-1.2-1.8-.2-3.8-.9-3.8-4.1 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.2 0 0 .7-.2 2.4.9a8.1 8.1 0 0 1 4.4 0c1.7-1.1 2.4-.9 2.4-.9.5 1.1.2 2 .1 2.2.6.6.9 1.4.9 2.3 0 3.2-2 3.9-3.9 4.1.3.3.6.8.6 1.7v2.5c0 .2.1.5.5.4A8.5 8.5 0 0 0 12 3.5Z" stroke="currentColor" stroke-width="1.4" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <img
+          src="/images/diogenes.png"
+          alt="Etching-style illustration of Diogenes"
+          width="1200"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          class="mt-6 h-48 w-full rounded-md border border-line object-cover object-[31%_39%]"
+        />
+      </article>
+
+      <article class="card load-in delay-2">
+        <h3 class="font-display text-4xl">Open to Collaborate</h3>
+        <p class="mt-4 max-w-prose text-lg leading-relaxed">
+          If you’re building something meaningful, especially where software and data solve real-world problems, I’d love to connect. I’m actively seeking full-time opportunities and open to thoughtful collaborations.
+        </p>
+        <a href="mailto:harisharul1@gmail.com" class="sketch-btn mt-6">Start a Conversation</a>
+      </article>
+    </div>
+  </section>
+
+  <script>
+    const roleRotator = document.querySelector('[data-role-rotator]');
+    const nextRoleButton = document.querySelector('[data-role-next]');
+    const roleItems = roleRotator?.querySelectorAll('[data-role-item]') ?? [];
+    let currentRole = 0;
+
+    const renderRole = () => {
+      roleItems.forEach((item, index) => {
+        item.classList.toggle('hidden', index !== currentRole);
+      });
+    };
+
+    nextRoleButton?.addEventListener('click', () => {
+      currentRole = (currentRole + 1) % roleItems.length;
+      renderRole();
+    });
+  </script>
+</BaseLayout>
