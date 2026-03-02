@@ -25,7 +25,7 @@ export const projects: Project[] = [
       'Implemented secure media storage with role-based access controls.',
       'Delivered AI-driven search and chatbot features to improve information access.'
     ],
-    image: '/images/rpost.png',
+    image: '/images/rpost.svg',
     links: [
       { label: 'GitHub', href: 'https://github.com/bud/rpost' }
     ]
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       'Built automated audio capture and transcription system.',
       'Explored multimodal AI integration for natural interaction models.'
     ],
-    image: '/images/voxquery.png',
+    image: '/images/voxquery.svg',
     links: [
     ]
   },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       'Deployed scalable cloud-hosted system for campus-wide usage.',
       'Solved cross-origin and deployment challenges in production environment.'
     ],
-    image: '/images/poll-requested.png',
+    image: '/images/poll-requested.svg',
     links: [
       { label: 'GitHub', href: 'https://github.com/bud/poll-website' }
     ]
@@ -80,7 +80,7 @@ export const projects: Project[] = [
       'Implemented full upload-to-storage pipeline for user-managed media.',
       'Designed simple, scalable architecture for content hosting workflows.'
     ],
-    image: '/images/picplace.png',
+    image: '/images/picplace.svg',
     links: [
       { label: 'GitHub', href: 'https://github.com/bud/picplace' }
     ]
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       'Integrated sound design and animation pipelines for immersive gameplay.',
       'Explored real-time input handling and game state architecture.'
     ],
-    image: '/images/razz.png',
+    image: '/images/razz.svg',
     links: [
       { label: 'Play', href: 'https://arulh.itch.io/razz' }
     ]
@@ -118,7 +118,7 @@ export const projects: Project[] = [
       'Implemented player controls, enemy behavior, and win conditions.',
       'Built foundational understanding of Java through hands-on development.'
     ],
-    image: '/images/8-bit-mario.png',
+    image: '/images/8-bit-mario.svg',
     links: [
       { label: 'GitHub', href: 'https://github.com/bud/8-bit-mario' }
     ]
