@@ -93,7 +93,7 @@ export const projects: Project[] = [
       'Built a retro-style side-scrolling platformer focused on responsive mechanics and gameplay systems.',
     details:
       'Developed a multi-level 2D platformer implementing physics-based movement, dash mechanics, grappling traversal, and collision systems. Designed animation states, sound integration, and gameplay timing to create a polished arcade-style experience inspired by classic 8-bit titles.',
-    stack: ['Game Engine', 'C#', 'Physics Systems', 'Audio Integration'],
+    stack: ['Unity', 'C#', 'Physics Systems', 'Audio Integration'],
     outcomes: [
       'Implemented custom movement and traversal mechanics across three levels.',
       'Integrated sound design and animation pipelines for immersive gameplay.',
