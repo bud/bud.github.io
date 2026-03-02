@@ -75,7 +75,7 @@ export const projects: Project[] = [
       'Built a lightweight image-sharing platform focused on upload, storage, and retrieval workflows.',
     details:
       'Created a web-based image hosting application that allows users to upload and manage content through a streamlined interface, emphasizing backend integration, storage handling, and user-driven content workflows.',
-    stack: ['JavaScript', 'Node.js', 'Express', 'Database Storage'],
+    stack: ['JavaScript', 'Node.js', 'Express', 'MongoDB'],
     outcomes: [
       'Implemented full upload-to-storage pipeline for user-managed media.',
       'Designed simple, scalable architecture for content hosting workflows.'
