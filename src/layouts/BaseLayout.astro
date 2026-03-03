@@ -36,5 +36,75 @@ const {
     <main class="mx-auto max-w-6xl px-5 pb-20 pt-8 md:px-8 md:pt-12">
       <slot />
     </main>
+    <script>
+      const supportsFinePointer = window.matchMedia('(pointer: fine)').matches;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (supportsFinePointer) {
+        document.body.classList.add('custom-cursor-enabled');
+
+        const cursor = document.createElement('div');
+        const trail = document.createElement('div');
+        cursor.className = 'custom-cursor-dot';
+        trail.className = 'custom-cursor-trail';
+        document.body.append(cursor, trail);
+
+        let targetX = window.innerWidth / 2;
+        let targetY = window.innerHeight / 2;
+        let trailX = targetX;
+        let trailY = targetY;
+        let trailAngle = 0;
+        let isVisible = false;
+
+        const showCursor = () => {
+          if (isVisible) {
+            return;
+          }
+
+          cursor.classList.add('is-visible');
+          trail.classList.add('is-visible');
+          isVisible = true;
+        };
+
+        const moveCursor = (event) => {
+          targetX = event.clientX;
+          targetY = event.clientY;
+          cursor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
+          showCursor();
+        };
+
+        const tick = () => {
+          const lerp = prefersReducedMotion ? 1 : 0.18;
+          trailX += (targetX - trailX) * lerp;
+          trailY += (targetY - trailY) * lerp;
+
+          const deltaX = targetX - trailX;
+          const deltaY = targetY - trailY;
+          const speed = Math.hypot(deltaX, deltaY);
+
+          if (speed > 0.2) {
+            trailAngle = Math.atan2(deltaY, deltaX);
+          }
+
+          const stretch = prefersReducedMotion ? 1 : Math.min(1.7, 1 + speed * 0.03);
+          const squash = prefersReducedMotion ? 1 : Math.max(0.72, 2 - stretch);
+
+          trail.style.transform =
+            `translate3d(${trailX}px, ${trailY}px, 0) ` +
+            `rotate(${trailAngle}rad) scale(${stretch}, ${squash})`;
+          requestAnimationFrame(tick);
+        };
+
+        document.addEventListener('mousemove', moveCursor, { passive: true });
+        document.addEventListener('mouseenter', showCursor, { passive: true });
+        document.addEventListener('mouseleave', () => {
+          cursor.classList.remove('is-visible');
+          trail.classList.remove('is-visible');
+          isVisible = false;
+        });
+
+        tick();
+      }
+    </script>
   </body>
 </html>
