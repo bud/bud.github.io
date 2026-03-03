@@ -58,7 +58,7 @@ body {
     height: 10px;
     margin-left: -5px;
     margin-top: -5px;
-    background: #000;
+    background: #1f1d1a;
   }
 
   .custom-cursor-trail {
@@ -67,7 +67,7 @@ body {
     margin-left: -5px;
     margin-top: -5px;
     border: none;
-    background: rgba(0, 0, 0, 0.22);
+    background: rgba(31, 29, 26, 0.22);
   }
 }
 
