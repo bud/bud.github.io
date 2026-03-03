@@ -75,6 +75,10 @@ import { projects } from '../data/projects';
 </section>
 
 <script>
+  const updateCursorHost = (host) => {
+    document.dispatchEvent(new CustomEvent('custom-cursor-host', { detail: { host } }));
+  };
+
   const openButtons = document.querySelectorAll('[data-open-modal]');
 
   openButtons.forEach((button) => {
@@ -83,6 +87,7 @@ import { projects } from '../data/projects';
       const modal = document.getElementById(`modal-${id}`);
       if (modal instanceof HTMLDialogElement) {
         modal.showModal();
+        updateCursorHost(modal);
       }
     });
   });
@@ -96,6 +101,10 @@ import { projects } from '../data/projects';
       if (event.target === modal) {
         modal.close();
       }
+    });
+
+    modal.addEventListener('close', () => {
+      updateCursorHost(document.body);
     });
 
     const closeButton = modal.querySelector('[data-close-modal]');

@@ -33,6 +33,12 @@ body {
     cursor: none !important;
   }
 
+  .project-modal,
+  .project-modal *,
+  .project-modal::backdrop {
+    cursor: none !important;
+  }
+
   .custom-cursor-dot,
   .custom-cursor-trail {
     position: fixed;

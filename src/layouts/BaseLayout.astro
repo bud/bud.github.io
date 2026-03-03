@@ -49,6 +49,15 @@ const {
         trail.className = 'custom-cursor-trail';
         document.body.append(cursor, trail);
 
+        const setCursorHost = (host) => {
+          if (host instanceof HTMLElement) {
+            host.append(cursor, trail);
+            return;
+          }
+
+          document.body.append(cursor, trail);
+        };
+
         let targetX = window.innerWidth / 2;
         let targetY = window.innerHeight / 2;
         let trailX = targetX;
@@ -101,6 +110,10 @@ const {
           cursor.classList.remove('is-visible');
           trail.classList.remove('is-visible');
           isVisible = false;
+        });
+        document.addEventListener('custom-cursor-host', (event) => {
+          const host = event.detail?.host;
+          setCursorHost(host);
         });
 
         tick();
