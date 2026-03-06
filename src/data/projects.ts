@@ -64,7 +64,7 @@ export const projects: Project[] = [
     ],
     image: '/images/poll-requested.svg',
     links: [
-      { label: 'GitHub', href: 'https://github.com/bud/poll-website' }
+      { label: 'GitHub', href: 'https://github.com/bud/poll-requested' }
     ]
   },
   {
