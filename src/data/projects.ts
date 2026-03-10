@@ -35,7 +35,7 @@ export const projects: Project[] = [
     title: 'Vask',
     subtitle: 'Voice-to-Action AI Framework',
     summary:
-      'Built an enterprise-ready automation framework that connects voice input, LLM reasoning, and tool execution into streamlined business workflows.',
+      'Built a voice-to-action framework connecting voice, LLM reasoning, and tools for business workflows.',
     details:
       'Designed a modular voice-to-action system that turns natural language, spoken or typed, into automated business actions. Features multi-provider LLM support (Gemini, Claude, OpenAI), a YAML-driven workflow engine with conditional branching and approval gates, and a plugin system for Slack, Google Workspace, and SQL databases. Deployable as a REST API, CLI, or MCP server with RBAC authentication and audit logging.',
     stack: ['Python', 'Whisper API', 'Gemini API', 'Claude API', 'OpenAI API', 'Docker', 'MCP'],
