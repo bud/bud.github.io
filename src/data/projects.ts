@@ -31,21 +31,22 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: 'voxquery',
-    title: 'VoxQuery',
-    subtitle: 'Real-Time Voice AI Interface',
+    id: 'vask',
+    title: 'Vask',
+    subtitle: 'Voice-to-Action AI Framework',
     summary:
-      'Created a hands-free voice assistant pipeline that converts live speech into AI-driven responses.',
+      'Built an enterprise-ready automation framework that connects voice input, LLM reasoning, and tool execution into streamlined business workflows.',
     details:
-      'Engineered an end-to-end voice interaction system that captures system audio, transcribes it using Whisper, and routes structured queries to Gemini for contextual responses. Designed a hotkey-triggered workflow to enable seamless real-time interaction, reducing friction between human input and AI reasoning.',
-    stack: ['Python', 'Whisper API', 'Gemini API', 'Audio Processing'],
+      'Designed a modular voice-to-action system that turns natural language, spoken or typed, into automated business actions. Features multi-provider LLM support (Gemini, Claude, OpenAI), a YAML-driven workflow engine with conditional branching and approval gates, and a plugin system for Slack, Google Workspace, and SQL databases. Deployable as a REST API, CLI, or MCP server with RBAC authentication and audit logging.',
+    stack: ['Python', 'Whisper API', 'Gemini API', 'Claude API', 'OpenAI API', 'Docker', 'MCP'],
     outcomes: [
-      'Delivered low-latency speech-to-AI pipeline for real-time workflows.',
-      'Built automated audio capture and transcription system.',
-      'Explored multimodal AI integration for natural interaction models.'
+      'Delivered multi-provider voice-to-action pipeline for business automation.',
+      'Built plugin system integrating Slack, Google Workspace, and SQL databases.',
+      'Implemented YAML workflow engine with conditional branching and human approval gates.'
     ],
-    image: '/images/voxquery.svg',
+    image: '/images/vask.svg',
     links: [
+      { label: 'GitHub', href: 'https://github.com/bud/vask' }
     ]
   },
   {
