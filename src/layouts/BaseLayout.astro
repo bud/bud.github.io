@@ -62,7 +62,6 @@ const {
         let targetY = window.innerHeight / 2;
         let trailX = targetX;
         let trailY = targetY;
-        let trailAngle = 0;
         let isVisible = false;
 
         const showCursor = () => {
@@ -83,24 +82,11 @@ const {
         };
 
         const tick = () => {
-          const lerp = prefersReducedMotion ? 1 : 0.18;
+          const lerp = prefersReducedMotion ? 1 : 0.35;
           trailX += (targetX - trailX) * lerp;
           trailY += (targetY - trailY) * lerp;
 
-          const deltaX = targetX - trailX;
-          const deltaY = targetY - trailY;
-          const speed = Math.hypot(deltaX, deltaY);
-
-          if (speed > 0.2) {
-            trailAngle = Math.atan2(deltaY, deltaX);
-          }
-
-          const stretch = prefersReducedMotion ? 1 : Math.min(1.7, 1 + speed * 0.03);
-          const squash = prefersReducedMotion ? 1 : Math.max(0.72, 2 - stretch);
-
-          trail.style.transform =
-            `translate3d(${trailX}px, ${trailY}px, 0) ` +
-            `rotate(${trailAngle}rad) scale(${stretch}, ${squash})`;
+          trail.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
           requestAnimationFrame(tick);
         };
 
