@@ -20,6 +20,12 @@ const skillGroups = [
 
 const workRoles = [
   {
+    company: 'Techforcement',
+    url: 'https://techforcement.com',
+    title: 'Co-Founder',
+    summary: 'Building AI automation and digital infrastructure that streamline operations and drive growth for businesses.'
+  },
+  {
     company: 'Capital One',
     title: 'Software Engineering Intern',
     summary: 'Improved fraud and dispute case tools with performance gains and GenAI-powered summaries.'
@@ -28,11 +34,6 @@ const workRoles = [
     company: 'Moonsworth',
     title: 'Software Engineer & Product Manager',
     summary: 'Led engineering and product initiatives for Lunar Client, supporting a platform with 3M+ monthly active users.'
-  },
-  {
-    company: 'Techforcement',
-    title: 'Co-Founder',
-    summary: 'Building AI automation and digital infrastructure that streamline operations and drive growth for businesses.'
   }
 ];
 ---
@@ -93,7 +94,7 @@ const workRoles = [
           {
             workRoles.map((role, index) => (
               <article class={`role-item rounded border border-line bg-paper/50 p-4 ${index === 0 ? '' : 'hidden'}`} data-role-item>
-                <p class="text-lg leading-snug"><strong>{role.company}</strong></p>
+                <p class="text-lg leading-snug"><strong>{role.url ? <a href={role.url} target="_blank" rel="noopener noreferrer" class="no-underline hover:text-ink/50 transition-colors">{role.company}</a> : role.company}</strong></p>
                 <p class="mt-1 text-base leading-snug"><strong>{role.title}</strong></p>
                 <p class="ink-bullet mt-3">{role.summary}</p>
               </article>
