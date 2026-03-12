@@ -82,7 +82,7 @@ const {
         };
 
         const tick = () => {
-          const lerp = prefersReducedMotion ? 1 : 0.35;
+          const lerp = prefersReducedMotion ? 1 : 0.6;
           trailX += (targetX - trailX) * lerp;
           trailY += (targetY - trailY) * lerp;
 
